@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- for release mode -->
+    <string name="compileModeName">stage</string>
+    <bool name="isDebug">true</bool>
+</resources>
