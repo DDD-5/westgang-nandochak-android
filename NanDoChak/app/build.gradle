@@ -66,6 +66,30 @@ android {
     dataBinding {
         enabled = true
     }
+
+    sourceSets {
+        main {
+            manifest.srcFile 'src/main/AndroidManifest.xml'
+            java.srcDirs = ['src/main/java']
+            res.srcDirs = ['src/main/res']
+        }
+
+        // config paths for each build types
+        tb {
+            java.srcDirs = ['src/main/tb']
+            res.srcDirs = ['src/main/tb']
+        }
+
+        stage {
+            java.srcDirs = ['src/main/stage']
+            res.srcDirs = ['src/main/stage']
+        }
+
+        release {
+            java.srcDirs = ['src/main/testbed']
+            res.srcDirs = ['src/main/release']
+        }
+    }
 }
 
 kapt {
@@ -124,7 +148,7 @@ dependencies {
     kapt 'com.google.dagger:hilt-compiler:2.35.1'
 
     // For instrumentation tests
-    androidTestImplementation  'com.google.dagger:hilt-android-testing:2.35.1'
+    androidTestImplementation 'com.google.dagger:hilt-android-testing:2.35.1'
     kaptAndroidTest 'com.google.dagger:hilt-compiler:2.35.1'
 
     // For local unit tests

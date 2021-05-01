@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- for release mode -->
+    <string name="compileModeName">release</string>
+    <bool name="isDebug">false</bool>
+</resources>
