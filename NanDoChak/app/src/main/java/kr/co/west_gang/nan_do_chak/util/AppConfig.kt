@@ -10,4 +10,5 @@ object AppConfig {
     var isDebugMode = NanDoChakApplication.getBoolean(R.bool.isDebug)
 
     const val TAG_DEBUG = "TAG_DEBUG"
+    const val UNCAUGHT_EXCEPTION = "uncaught_exception"
 }
