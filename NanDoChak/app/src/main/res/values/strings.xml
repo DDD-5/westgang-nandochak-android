@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Nan Do Chak</string>
+
+    <string name="hours">시</string>
+    <string name="minutes">분</string>
+
+    <!--average ready time-->
+    <string name="selectAverageReadyTime">친구야 안녕!\n평균 준비 시간을 선택해줘요</string>
+
+    <!--early arrived time-->
+    <string name="selectEarlyArrivedTime">친구 이름이 $유저네임$(이)구나!\n몇 분 일찍 도착할 계획일까?</string>
+
+    <!--plan time-->
+    <string name="selectPlanTime">약속 장소에 몇 시에\n 모이기로 했을까?</string>
 </resources>

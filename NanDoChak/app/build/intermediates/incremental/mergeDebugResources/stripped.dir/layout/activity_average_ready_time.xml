@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="50dp"
+        android:letterSpacing="-0.01"
+        android:lineSpacingExtra="8sp"
+        android:text="@string/selectAverageReadyTime"
+        android:textSize="22dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/number_picker_background_gray"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <NumberPicker
+        android:id="@+id/averageReadyTimeHours"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/averageReadyTimeMinutes"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:theme="@style/AppTheme.NumberPicker"/>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/averageReadyTimeHours"
+        android:textColor="@color/number_picker_text_color_black"
+        android:textSize="14dp"
+        app:layout_constraintEnd_toEndOf="@id/averageReadyTimeHours"
+        app:layout_constraintBottom_toBottomOf="@id/imageView"
+        android:layout_marginBottom="15dp"/>
+
+    <NumberPicker
+        android:id="@+id/averageReadyTimeMinutes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/averageReadyTimeHours"
+        app:layout_constraintTop_toTopOf="parent"
+        android:theme="@style/AppTheme.NumberPicker"/>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/averageReadyTimeMinutes"
+        android:textColor="@color/number_picker_text_color_black"
+        android:textSize="14dp"
+        app:layout_constraintEnd_toEndOf="@id/averageReadyTimeMinutes"
+        app:layout_constraintBottom_toBottomOf="@id/imageView"
+        android:layout_marginBottom="15dp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/button_average_ready_time_brown_round_24"
+        android:text="선택"
+        android:textColor="@color/white"
+        android:textSize="14dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:outlineProvider="none"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

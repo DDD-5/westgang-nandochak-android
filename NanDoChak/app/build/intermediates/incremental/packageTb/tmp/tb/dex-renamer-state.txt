@@ -1,0 +1,10 @@
+#Fri May 07 22:27:45 KST 2021
+path.2=classes2.dex
+path.1=classes.dex
+path.0=classes.dex
+renamed.2=classes3.dex
+renamed.1=classes2.dex
+renamed.0=classes.dex
+base.2=/Users/gyurim/Documents/AndroidStudioProjects/westgang-nandochak-android/NanDoChak/app/build/intermediates/dex/tb/mergeExtDexTb/classes2.dex
+base.1=/Users/gyurim/Documents/AndroidStudioProjects/westgang-nandochak-android/NanDoChak/app/build/intermediates/dex/tb/mergeProjectDexTb/classes.dex
+base.0=/Users/gyurim/Documents/AndroidStudioProjects/westgang-nandochak-android/NanDoChak/app/build/intermediates/dex/tb/mergeExtDexTb/classes.dex
