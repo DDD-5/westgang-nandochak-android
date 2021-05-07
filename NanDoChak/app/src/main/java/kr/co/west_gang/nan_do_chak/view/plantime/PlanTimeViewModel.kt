@@ -11,5 +11,4 @@ class PlanTimeViewModel : ViewModel() {
     fun onButtonClick(){
         _buttonClickEvent.value = Unit
     }
-
 }
