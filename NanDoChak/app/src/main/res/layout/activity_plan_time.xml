@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="kr.co.west_gang.nan_do_chak.view.plantime.PlanTimeViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.plantime.PlanTimeActivity">
+
+        <TextView
+            android:id="@+id/planTimeTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/selectPlanTime"
+            style="@style/TitleTextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <ImageView
+            android:id="@+id/planTimePickerBackground"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/number_picker_background_gray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <NumberPicker
+            android:id="@+id/planTimeMeridiemPicker"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.TimePicker"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="50dp"
+            android:onValueChange="@{(picker, oldv, newv)-> viewModel.onValueChange(newv)}"/>
+
+        <NumberPicker
+            android:id="@+id/planTimeHoursPicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.NumberPicker"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/planTimeMeridiemPicker"
+            android:layout_marginStart="20dp"
+            android:value ="@={viewModel.planTimeHours}"/>
+
+        <TextView
+            android:id="@+id/planTimeHoursText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:text="@string/hours"
+            android:textColor="@color/number_picker_text_color_black"
+            android:textSize="14dp"
+            app:layout_constraintBottom_toBottomOf="@id/planTimePickerBackground"
+            app:layout_constraintEnd_toEndOf="@id/planTimeHoursPicker"/>
+
+        <NumberPicker
+            android:id="@+id/planTimeMinutesPicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.NumberPicker"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/planTimeHoursPicker"
+            android:layout_marginStart="40dp"
+            android:value ="@={viewModel.planTimeMinutes}"/>
+
+        <TextView
+            android:id="@+id/planTimeMinutesText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:text="@string/minutes"
+            android:textColor="@color/number_picker_text_color_black"
+            android:textSize="14dp"
+            app:layout_constraintBottom_toBottomOf="@id/planTimePickerBackground"
+            app:layout_constraintEnd_toEndOf="@id/planTimeMinutesPicker" />
+
+        <Button
+            android:id="@+id/planTimeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/button_average_ready_time_brown_round_24"
+            android:onClick="@{()->viewModel.onButtonClick()}"
+            android:outlineProvider="none"
+            android:text="선택"
+            android:textColor="@color/white"
+            android:textSize="14dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
