@@ -41,7 +41,17 @@ class NanDoChakApplication : Application() {
             }
         })
 
+        if (!AppConfig.isDebugMode) {
+            setCrashHandler()
+        }
+
         KakaoSdk.init(this, getString(R.string.kakao_app_key))
+    }
+
+    private fun setCrashHandler() {
+        Thread.setDefaultUncaughtExceptionHandler(
+            NanDoChakExceptionHandler(this, Thread.getDefaultUncaughtExceptionHandler())
+        )
     }
 
     companion object {
