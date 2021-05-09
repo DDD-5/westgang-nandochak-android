@@ -1,3 +1,9 @@
+# 난도착 android & Firestore Database Structure
+
+<img src="img/nadochak_database.png" height= "1000">
+
+<br>
+
 # 난 도 착 Android 내부 정책
 
 <br>
