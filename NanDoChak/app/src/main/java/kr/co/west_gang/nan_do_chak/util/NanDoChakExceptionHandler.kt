@@ -4,7 +4,8 @@ import android.app.Activity
 import android.app.Application
 import android.content.Intent
 import android.os.Bundle
-import kr.co.west_gang.nan_do_chak.view.main.MainActivity
+import kr.co.west_gang.nan_do_chak.util.AppConfig.UNCAUGHT_EXCEPTION
+import kr.co.west_gang.nan_do_chak.view.errorpage.ErrorPageActivity
 import java.io.PrintWriter
 import java.io.StringWriter
 
@@ -59,16 +60,17 @@ class NanDoChakExceptionHandler(
         throwable.printStackTrace(PrintWriter(stringWriter))
 
         lastActivity?.run {
-            //TODO : If you when report Exception log or the other, print or report Error here
-            logE(stringWriter.toString())
-            restartActivity(this)
+            val errorString = stringWriter.toString()
+            logE(errorString)
+            restartActivity(errorString, this)
         } ?: defaultExceptionHandler?.uncaughtException(thread, throwable)
     }
 
-    private fun restartActivity(activity: Activity) {
+    private fun restartActivity(error: String, activity: Activity) {
         activity.run {
-            //TODO : Change Activity which you want to show activity when exception caught
-            val restartIntent = Intent(this, MainActivity::class.java)
+            val restartIntent = Intent(this, ErrorPageActivity::class.java).apply {
+                putExtra(UNCAUGHT_EXCEPTION, error)
+            }
             finish()
             startActivity(restartIntent)
         }

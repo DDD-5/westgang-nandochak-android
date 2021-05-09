@@ -26,7 +26,11 @@
         android:usesCleartextTraffic="true"
         tools:ignore="HardcodedDebugMode"
         tools:replace="android:allowBackup">
-        <activity android:name=".view.main.MainActivity">
+        <activity android:name=".view.errorpage.ErrorPageActivity" />
+        <activity
+            android:name=".view.splash.SplashActivity"
+            android:screenOrientation="sensorPortrait"
+            tools:ignore="LockedOrientationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -36,6 +40,11 @@
         <activity android:name=".view.averagereadytime.AverageReadyTimeActivity"/>
         <activity android:name=".view.earlyarrivedtime.EarlyArrivedTimeActivity"/>
         <activity android:name=".view.plantime.PlanTimeActivity"/>
+        <activity
+            android:name=".view.main.MainActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
     </application>
 
 </manifest>
