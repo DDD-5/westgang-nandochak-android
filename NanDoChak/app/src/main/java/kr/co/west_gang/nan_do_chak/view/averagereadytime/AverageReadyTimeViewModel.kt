@@ -10,8 +10,12 @@ class AverageReadyTimeViewModel : ViewModel() {
     private val _buttonClickEvent = MutableLiveData<Unit>()
     val buttonClickEvent : LiveData<Unit> = _buttonClickEvent
 
+    private val _averageReadyTimeHours = MutableLiveData<Int>()
     var averageReadyTimeHours = 0
+
+    private val _averageReadyTimeMinutes = MutableLiveData<Int>()
     var averageReadyTimeMinutes = 0
+
 
     fun onButtonClick(){
         _buttonClickEvent.value = Unit

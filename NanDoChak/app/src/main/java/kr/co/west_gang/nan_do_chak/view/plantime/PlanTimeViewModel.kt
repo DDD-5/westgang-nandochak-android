@@ -8,8 +8,13 @@ class PlanTimeViewModel : ViewModel() {
     private val _buttonClickEvent = MutableLiveData<Unit>()
     val buttonClickEvent : LiveData<Unit> = _buttonClickEvent
 
+    private val _planTimeHours =  MutableLiveData<Int>()
     var planTimeHours = 0
+
+    private val _planTimeMinutes =  MutableLiveData<Int>()
     var planTimeMinutes = 0
+
+    private val _planTimeMeridiem =  MutableLiveData<String>()
     var planTimeMeridiem = ""
 
     fun onButtonClick(){
