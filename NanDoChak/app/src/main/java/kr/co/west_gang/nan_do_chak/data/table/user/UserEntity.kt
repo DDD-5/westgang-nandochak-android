@@ -1,4 +1,4 @@
-package kr.co.west_gang.nan_do_chak.data.user
+package kr.co.west_gang.nan_do_chak.data.table.user
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

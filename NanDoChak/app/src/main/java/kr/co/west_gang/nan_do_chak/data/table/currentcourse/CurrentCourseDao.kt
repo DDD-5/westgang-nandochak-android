@@ -1,15 +1,16 @@
-package kr.co.west_gang.nan_do_chak.data.currentcourse
+package kr.co.west_gang.nan_do_chak.data.table.currentcourse
 
 import androidx.room.Dao
 import androidx.room.Query
-import kr.co.west_gang.nan_do_chak.data.BaseDao
+import kr.co.west_gang.nan_do_chak.data.table.BaseDao
 
 /*
 * Created by JJJoonngg
 */
 
 @Dao
-interface CurrentCourseDao : BaseDao<CurrentCourseEntity> {
+interface CurrentCourseDao :
+    BaseDao<CurrentCourseEntity> {
 
     @Query("SELECT * FROM current_course WHERE course_id =:courseId")
     suspend fun readCurrentCourse(courseId: String): CurrentCourseEntity

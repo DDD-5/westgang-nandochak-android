@@ -1,11 +1,10 @@
-package kr.co.west_gang.nan_do_chak.data.currentcourse
+package kr.co.west_gang.nan_do_chak.data.table.currentcourse
 
-import android.content.IntentSender
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
-import kr.co.west_gang.nan_do_chak.data.user.UserEntity
+import kr.co.west_gang.nan_do_chak.data.table.user.UserEntity
 
 /*
 * Created by JJJoonngg

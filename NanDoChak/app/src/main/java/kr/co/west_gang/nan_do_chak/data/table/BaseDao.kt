@@ -1,4 +1,4 @@
-package kr.co.west_gang.nan_do_chak.data
+package kr.co.west_gang.nan_do_chak.data.table
 
 import androidx.room.Delete
 import androidx.room.Insert

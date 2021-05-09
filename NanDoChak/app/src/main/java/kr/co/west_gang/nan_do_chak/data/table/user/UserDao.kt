@@ -1,8 +1,8 @@
-package kr.co.west_gang.nan_do_chak.data.user
+package kr.co.west_gang.nan_do_chak.data.table.user
 
 import androidx.room.Dao
 import androidx.room.Query
-import kr.co.west_gang.nan_do_chak.data.BaseDao
+import kr.co.west_gang.nan_do_chak.data.table.BaseDao
 
 /*
 * Created by JJJoonngg
