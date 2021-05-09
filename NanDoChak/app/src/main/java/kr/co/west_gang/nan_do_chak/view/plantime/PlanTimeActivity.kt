@@ -16,10 +16,6 @@ class PlanTimeActivity : BaseActivity() {
     private val binding by binding<ActivityPlanTimeBinding>(R.layout.activity_plan_time)
     private val viewModel: PlanTimeViewModel by viewModels()
 
-    private var planTimeHours = 0
-    private var planTimeMinutes = 0
-    private lateinit var planTime : String
-
     private val valueOfPlanTimePicker = arrayOf("오전", "오후")
 
     private fun NumberPicker.formatter() = this.setFormatter { i -> String.format("%02d", i) }
@@ -40,35 +36,26 @@ class PlanTimeActivity : BaseActivity() {
         binding.planTimeHoursPicker.maxValue = 12
         binding.planTimeMinutesPicker.minValue = 0
         binding.planTimeMinutesPicker.maxValue = 59
-        binding.planTimePicker.minValue = 0
-        binding.planTimePicker.maxValue = 1
+        binding.planTimeMeridiemPicker.minValue = 0
+        binding.planTimeMeridiemPicker.maxValue = 1
 
         binding.planTimeHoursPicker.wrapSelectorWheel = false
         binding.planTimeMinutesPicker.wrapSelectorWheel = false
-        binding.planTimePicker.wrapSelectorWheel = false
+        binding.planTimeMeridiemPicker.wrapSelectorWheel = false
 
         binding.planTimeHoursPicker.descendantFocusability = NumberPicker.FOCUS_BLOCK_DESCENDANTS
         binding.planTimeMinutesPicker.descendantFocusability = NumberPicker.FOCUS_BLOCK_DESCENDANTS
-        binding.planTimePicker.descendantFocusability = NumberPicker.FOCUS_BLOCK_DESCENDANTS
+        binding.planTimeMeridiemPicker.descendantFocusability = NumberPicker.FOCUS_BLOCK_DESCENDANTS
 
-        binding.planTimePicker.displayedValues = valueOfPlanTimePicker
+        binding.planTimeMeridiemPicker.displayedValues = valueOfPlanTimePicker
         binding.planTimeHoursPicker.formatter()
         binding.planTimeMinutesPicker.formatter()
     }
 
     private fun observeLiveData(){
         viewModel.buttonClickEvent.observe(this, Observer {
-            getTimeFromPicker()
             gotoMain()
         })
-    }
-
-    private fun getTimeFromPicker(){
-        planTimeHours = binding.planTimeHoursPicker.value
-        planTimeMinutes = binding.planTimeMinutesPicker.value
-        planTime = valueOfPlanTimePicker[binding.planTimePicker.value]
-
-        logD(AppConfig.TAG_DEBUG, "hours: $planTimeHours / minutes: $planTimeMinutes / time: $planTime")
     }
 
     private fun gotoMain(){

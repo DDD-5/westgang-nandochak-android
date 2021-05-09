@@ -17,9 +17,6 @@ class EarlyArrivedTimeActivity : BaseActivity()  {
     private val binding by binding<ActivityEarlyArrivedTimeBinding>(R.layout.activity_early_arrived_time)
     private val viewModel: EarlyArrivedTimeViewModel by viewModels()
 
-    private var earlyArrivedTimeHours = 0
-    private var earlyArrivedTimeMinutes = 0
-
     private fun NumberPicker.formatter() = this.setFormatter { i -> String.format("%02d", i) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,18 +46,12 @@ class EarlyArrivedTimeActivity : BaseActivity()  {
         binding.earlyArrivedTimeMinutesPicker.formatter()
     }
 
-    private fun getTimeFromPicker(){
-        earlyArrivedTimeHours = binding.earlyArrivedTimeHoursPicker.value
-        earlyArrivedTimeMinutes = binding.earlyArrivedTimeMinutesPicker.value
-
-        logD(AppConfig.TAG_DEBUG, "hours: $earlyArrivedTimeHours / minutes: $earlyArrivedTimeMinutes")
-    }
-
     private fun observeLiveData(){
         viewModel.buttonClickEvent.observe(this, Observer {
-            getTimeFromPicker()
             gotoPlansTime()
         })
+
+        binding.earlyArrivedTimeTitle.text = getString(R.string.selectEarlyArrivedTime, viewModel.userName)
     }
 
     private fun gotoPlansTime(){

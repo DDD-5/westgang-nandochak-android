@@ -17,9 +17,6 @@ class AverageReadyTimeActivity: BaseActivity() {
     private val binding by binding<ActivityAverageReadyTimeBinding>(R.layout.activity_average_ready_time)
     private val viewModel: AverageReadyTimeViewModel by viewModels()
 
-    private var averageReadyTimeHours = 0
-    private var averageReadyTimeMinutes = 0
-
     private fun NumberPicker.formatter() = this.setFormatter { i -> String.format("%02d", i) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,16 +46,8 @@ class AverageReadyTimeActivity: BaseActivity() {
         binding.averageReadyTimeHoursPicker.formatter()
     }
 
-    private fun getTimeFromPicker(){
-        averageReadyTimeHours = binding.averageReadyTimeHoursPicker.value
-        averageReadyTimeMinutes = binding.averageReadyTimeMinutesPicker.value
-
-        logD(AppConfig.TAG_DEBUG, "hours: $averageReadyTimeHours / minutes: $averageReadyTimeMinutes")
-    }
-
     private fun observeLiveData(){
         viewModel.buttonClickEvent.observe(this, Observer {
-            getTimeFromPicker()
             gotoEarlyArrivedTime()
         })
     }
