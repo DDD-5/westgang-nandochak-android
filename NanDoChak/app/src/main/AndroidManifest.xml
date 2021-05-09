@@ -27,13 +27,21 @@
         tools:ignore="HardcodedDebugMode"
         tools:replace="android:allowBackup">
         <activity android:name=".view.errorpage.ErrorPageActivity" />
-        <activity android:name=".view.main.MainActivity">
+        <activity
+            android:name=".view.splash.SplashActivity"
+            android:screenOrientation="sensorPortrait"
+            tools:ignore="LockedOrientationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".view.main.MainActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
     </application>
 
 </manifest>
