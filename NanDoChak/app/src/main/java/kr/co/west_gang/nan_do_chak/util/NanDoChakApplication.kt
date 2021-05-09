@@ -38,6 +38,16 @@ class NanDoChakApplication : Application() {
                 return AppConfig.isDebugMode
             }
         })
+
+        if (!AppConfig.isDebugMode) {
+            setCrashHandler()
+        }
+    }
+
+    private fun setCrashHandler() {
+        Thread.setDefaultUncaughtExceptionHandler(
+            NanDoChakExceptionHandler(this, Thread.getDefaultUncaughtExceptionHandler())
+        )
     }
 
     companion object {
