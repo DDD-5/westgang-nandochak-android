@@ -33,6 +33,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".view.averagereadytime.AverageReadyTimeActivity"></activity>
+        <activity android:name=".view.earlyarrivedtime.EarlyArrivedTimeActivity"></activity>
+        <activity android:name=".view.plantime.PlanTimeActivity"></activity>
     </application>
 
 </manifest>
