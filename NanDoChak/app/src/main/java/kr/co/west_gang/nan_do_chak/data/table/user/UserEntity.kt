@@ -14,7 +14,7 @@ data class UserEntity(
     @ColumnInfo(name = "kakao_id") val kakaoId: String,
     val nickname: String,
     @ColumnInfo(name = "average_ready_time") val averageReadyTime: String,
-    @ColumnInfo(name = "early_arrive_time") val earlyArrivedTime: String,
+    @ColumnInfo(name = "early_arrived_time") val earlyArrivedTime: String,
     @ColumnInfo(name = "market_terms") val marketTerms: Boolean,
     @ColumnInfo(name = "third_party_terms") val thirdPartyTerms: Boolean
 )
