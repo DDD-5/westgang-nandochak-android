@@ -11,4 +11,8 @@ object AppConfig {
 
     const val TAG_DEBUG = "TAG_DEBUG"
     const val UNCAUGHT_EXCEPTION = "uncaught_exception"
+
+    const val FRAGMENT_ID_HOME = "homeFragment"
+    const val FRAGMENT_ID_ALARM = "alarmFragment"
+    const val FRAGMENT_ID_ACCOUNT = "accountFragment"
 }
