@@ -9,6 +9,4 @@ import androidx.lifecycle.ViewModel
 */
 
 class MainViewModel : ViewModel() {
-    private val _helloWorld: MutableLiveData<String> = MutableLiveData("Hello West Gang World!")
-    val helloWorld: LiveData<String> = _helloWorld
 }
