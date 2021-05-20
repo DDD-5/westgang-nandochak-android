@@ -10,6 +10,7 @@ import kr.co.west_gang.nan_do_chak.architecture.BaseActivity
 import kr.co.west_gang.nan_do_chak.databinding.ActivitySplashBinding
 import kr.co.west_gang.nan_do_chak.util.AppConfig.TAG_DEBUG
 import kr.co.west_gang.nan_do_chak.util.logD
+import kr.co.west_gang.nan_do_chak.view.login.LoginActivity
 import kr.co.west_gang.nan_do_chak.view.main.MainActivity
 
 class SplashActivity : BaseActivity() {
@@ -31,12 +32,17 @@ class SplashActivity : BaseActivity() {
         //TODO : Remove This Code
         CoroutineScope(Dispatchers.IO).launch {
             delay(3000L)
-            startMainActivity()
+            startLoginActivity()
         }
     }
 
     private fun startMainActivity() {
         startActivity(Intent(this, MainActivity::class.java))
+        finish()
+    }
+
+    private fun startLoginActivity() {
+        startActivity(Intent(this, LoginActivity::class.java))
         finish()
     }
 

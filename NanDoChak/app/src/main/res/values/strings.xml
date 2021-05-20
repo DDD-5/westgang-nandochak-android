@@ -12,4 +12,13 @@
 
     <!--plan time-->
     <string name="selectPlanTime">약속 장소에 몇 시에\n 모이기로 했을까?</string>
+    <string name="kakao_sign_up">카카오톡으로 가입하기</string>
+    <string name="kakao_login">카카오톡으로 로그인!</string>
+
+    <string name="login_welcome_text_title">
+        아안녀엉 치인구야!\n나아느은 느리지마안 하앙사앙\n워언하느은 시이가안에\n자알 도오착해애 내 비이버업으을 아알려어주울까아?
+    </string>
+    <string name="login_welcome_text_explain">
+        내에가아 너어무우 느으리이니,\n세에배에소옥으로오 내에 마알을 보오내에 주울게 하 하 하 하 기이다아려어 보아
+    </string>
 </resources>

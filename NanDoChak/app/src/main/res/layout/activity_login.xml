@@ -15,20 +15,91 @@
         android:layout_height="match_parent"
         tools:context=".view.login.LoginActivity">
 
-        <ImageButton
-            android:id="@+id/kakaoLoginButton"
+        <ImageView
+            android:id="@+id/loginPageCharacterBackground"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:background="@color/white"
-            android:onClick="@{()-> viewModel.loginButtonClicked()}"
-            android:src="@drawable/button_kakao_login_kr"
+            android:src="@drawable/ui_background_login_page"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/loginWelcomeTextBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/ui_login_text_background"
+            android:elevation="10dp"
+            android:paddingStart="24dp"
+            android:paddingTop="30dp"
+            android:paddingEnd="24dp"
+            android:paddingBottom="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            tools:ignore="ContentDescription" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/loginWelcomeTextTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:letterSpacing="-0.02"
+                android:text="@string/login_welcome_text_title"
+                android:textColor="#29292f"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/loginWelcomeTextExplain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:letterSpacing="-0.02"
+                android:text="@string/login_welcome_text_explain"
+                android:textColor="#29292f"
+                android:textSize="14dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/loginWelcomeTextTitle" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:id="@+id/kakaoSignUpButton"
+            style="@style/LoginButtonText"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/kakao_button_height"
+            android:layout_marginStart="@dimen/kakao_button_margin_side"
+            android:layout_marginEnd="@dimen/kakao_button_margin_side"
+            android:layout_marginBottom="@dimen/kakao_sign_up_button_margin_bottom"
+            android:background="@drawable/ui_login_button_background"
+            android:stateListAnimator="@null"
+            android:text="@string/kakao_sign_up"
+            app:layout_constraintBottom_toTopOf="@id/kakaoLoginButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+        <Button
+            android:id="@+id/kakaoLoginButton"
+            style="@style/LoginButtonText"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/kakao_button_height"
+            android:layout_marginStart="@dimen/kakao_button_margin_side"
+            android:layout_marginEnd="@dimen/kakao_button_margin_side"
+            android:layout_marginBottom="@dimen/kakao_login_button_margin_bottom"
+            android:background="@drawable/ui_login_button_background"
+            android:stateListAnimator="@null"
+            android:text="@string/kakao_login"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
