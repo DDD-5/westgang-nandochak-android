@@ -3,6 +3,7 @@ package kr.co.west_gang.nan_do_chak.view.earlyarrivedtime
 import android.content.Intent
 import android.os.Bundle
 import android.widget.NumberPicker
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import kr.co.west_gang.nan_do_chak.R
@@ -64,11 +65,18 @@ class EarlyArrivedTimeActivity : BaseActivity() {
         viewModel.buttonClickEvent.observe(this, Observer {
             viewModel.setUserInformationDone(isFromSignUp)
         })
+
+        viewModel.signUpDone.observe(this, Observer {
+            signUpDone()
+        })
     }
 
-    private fun goToMainActivity() {
-        startActivity(
-            Intent(this, PlanTimeActivity::class.java)
-        )
+    private fun signUpDone() {
+        Toast.makeText(
+            this,
+            getString(R.string.sign_up_complete),
+            Toast.LENGTH_SHORT
+        ).show()
+        finish()
     }
 }

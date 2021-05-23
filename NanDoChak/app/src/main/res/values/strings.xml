@@ -47,6 +47,22 @@
         내에가아 너어무우 느으리이니,\n세에배에소옥으로오 내에 마알을 보오내에 주울게 하 하 하 하 기이다아려어 보아
     </string>
 
+    <string name="login_toast_success">
+        로그인 성공
+    </string>
+    <string name="login_toast_not_exist_user">
+        존재하지 않는 회원입니다. 가입해주세요!
+    </string>
+    <string name="login_toast_exist_user">
+        이미 가입된 회원입니다.\n로그인 해주세요!
+    </string>
+    <string name="login_error">
+        로그인 중 문제가 발생했습니다.\n다시 한 번 시도해주세요.
+    </string>
+    <string name="login_sign_up_error">
+        회원 가입중 문제가 발생했습니다.\n다시 한 번 시도해주세요.
+    </string>
+
     <!-- sign up-->
     <string name="sign_up_title_comment">
         이제 3배속으로 변환기를 했어 잘 들리니?
@@ -62,6 +78,16 @@
     <string name="sign_up_require_more_input_text">
         두 글자 이상 입력 해줘!
     </string>
+    <string name="sign_up_complete">
+        회원가입 완료! 로그인 부탁해!
+    </string>
+    
+    
+    
     <string name="common_choice">선택</string>
+
+    <string name="kakao_login_cancelled">
+        cancelled
+    </string>
 
 </resources>

@@ -30,8 +30,8 @@ class SplashActivity : BaseActivity() {
         super.onResume()
 
         //TODO : Remove This Code
-        CoroutineScope(Dispatchers.IO).launch {
-            delay(3000L)
+        CoroutineScope(Dispatchers.Default).launch {
+            delay(1500L)
             startLoginActivity()
         }
     }

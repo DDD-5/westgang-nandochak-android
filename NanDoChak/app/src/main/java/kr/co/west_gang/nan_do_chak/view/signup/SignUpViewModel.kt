@@ -3,7 +3,7 @@ package kr.co.west_gang.nan_do_chak.view.signup
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import kr.co.west_gang.nan_do_chak.data.dto.UserInfoDto
+import kr.co.west_gang.nan_do_chak.data.UserInfo
 
 /*
 * Created by JJJoonngg
@@ -19,7 +19,7 @@ class SignUpViewModel : ViewModel() {
 
     fun setNickName(input: String) {
         _nickNameInput.value = input
-        UserInfoDto.nickname = _nickNameInput.value.toString()
+        UserInfo.nickname = _nickNameInput.value.toString()
     }
 
     fun signUpDoneButtonClick() {
