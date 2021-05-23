@@ -9,7 +9,21 @@
     </string>
 
     <!--average ready time-->
-    <string name="selectAverageReadyTime">친구야 안녕!\n평균 준비 시간을 선택해줘요</string>
+    <string name="selectAverageReadyTime">
+        (야)아!
+        \n평균 준비 시간을 선택해
+    </string>
+    <string name="selectAverageReadyTimeWhenSignUpPrefix">
+        아하 이름이
+    </string>
+    <string name="selectAverageReadyTimeWhenSignUpPostfix">
+        구나!
+        \n약속 장소에 나갈때
+        \n평균 준비 시간을 선택해 줘
+    </string>
+    <string name="selectAverageReadyTimeWhenNoNickName">
+        평균 준비 시간을 선택해 줘
+    </string>
 
     <!--early arrived time-->
     <string name="selectEarlyArrivedTime">친구 이름이 %1$s(이)구나!\n몇 분 일찍 도착할 계획일까?</string>

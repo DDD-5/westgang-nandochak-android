@@ -44,7 +44,11 @@ class SignUpActivity : BaseActivity() {
     private fun goToNextStep() {
         val nickNameText = viewModel.nickNameInput.value
         if (nickNameText.isNullOrEmpty() || nickNameText.length < 2) {
-            Toast.makeText(this, getString(R.string.sign_up_require_more_input_text), Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                this,
+                getString(R.string.sign_up_require_more_input_text),
+                Toast.LENGTH_SHORT
+            ).show()
         } else {
             logD(TAG_DEBUG, "nickName : $nickNameText")
             startAverageActivity(nickNameText)
@@ -54,6 +58,7 @@ class SignUpActivity : BaseActivity() {
     private fun startAverageActivity(nickName: String) {
         Intent(this, AverageReadyTimeActivity::class.java).apply {
             putExtra(AppConfig.INTENT_PARAM_NICK_NAME, nickName)
+            putExtra(AppConfig.INTENT_PARAM_FLAG_FROM_SIGN_UP, true)
         }.also {
             startActivity(it)
         }
@@ -66,7 +71,7 @@ class SignUpActivity : BaseActivity() {
                 Unit
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                val input =s?.trim().toString()
+                val input = s?.toString()?.replace(" ", "") ?: ""
                 viewModel.setNickName(input)
             }
         })

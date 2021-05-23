@@ -12,10 +12,13 @@ import kr.co.west_gang.nan_do_chak.util.AppConfig
 import kr.co.west_gang.nan_do_chak.util.logD
 import kr.co.west_gang.nan_do_chak.view.earlyarrivedtime.EarlyArrivedTimeActivity
 
-class AverageReadyTimeActivity: BaseActivity() {
+class AverageReadyTimeActivity : BaseActivity() {
 
     private val binding by binding<ActivityAverageReadyTimeBinding>(R.layout.activity_average_ready_time)
     private val viewModel: AverageReadyTimeViewModel by viewModels()
+
+    private var isFromSignUp = false
+    private var nickName: String? = null
 
     private fun NumberPicker.formatter() = this.setFormatter { i -> String.format("%02d", i) }
 
@@ -26,11 +29,15 @@ class AverageReadyTimeActivity: BaseActivity() {
 
         logD(AppConfig.TAG_DEBUG, "AverageReadyTime Activity onCreate")
 
+        isFromSignUp = intent.extras?.get(AppConfig.INTENT_PARAM_FLAG_FROM_SIGN_UP) as Boolean
+        nickName = intent.extras?.get(AppConfig.INTENT_PARAM_NICK_NAME)?.toString()
+
         initNumberPicker()
+        initUserNickName()
         observeLiveData()
     }
 
-    private fun initNumberPicker(){
+    private fun initNumberPicker() {
         binding.averageReadyTimeHoursPicker.minValue = 0
         binding.averageReadyTimeHoursPicker.maxValue = 12
         binding.averageReadyTimeMinutesPicker.minValue = 0
@@ -39,20 +46,26 @@ class AverageReadyTimeActivity: BaseActivity() {
         binding.averageReadyTimeHoursPicker.wrapSelectorWheel = false
         binding.averageReadyTimeMinutesPicker.wrapSelectorWheel = false
 
-        binding.averageReadyTimeHoursPicker.descendantFocusability = NumberPicker.FOCUS_BLOCK_DESCENDANTS
-        binding.averageReadyTimeMinutesPicker.descendantFocusability = NumberPicker.FOCUS_BLOCK_DESCENDANTS
+        binding.averageReadyTimeHoursPicker.descendantFocusability =
+            NumberPicker.FOCUS_BLOCK_DESCENDANTS
+        binding.averageReadyTimeMinutesPicker.descendantFocusability =
+            NumberPicker.FOCUS_BLOCK_DESCENDANTS
 
         binding.averageReadyTimeMinutesPicker.formatter()
         binding.averageReadyTimeHoursPicker.formatter()
     }
 
-    private fun observeLiveData(){
+    private fun initUserNickName() {
+        viewModel.setUserNickName(nickName, isFromSignUp)
+    }
+
+    private fun observeLiveData() {
         viewModel.buttonClickEvent.observe(this, Observer {
             gotoEarlyArrivedTime()
         })
     }
 
-    private fun gotoEarlyArrivedTime(){
+    private fun gotoEarlyArrivedTime() {
         startActivity(
             Intent(this, EarlyArrivedTimeActivity::class.java)
         )
