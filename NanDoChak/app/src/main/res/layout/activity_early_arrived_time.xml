@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="kr.co.west_gang.nan_do_chak.view.earlyarrivedtime.EarlyArrivedTimeViewModel" />
@@ -17,64 +18,64 @@
 
         <TextView
             android:id="@+id/earlyArrivedTimeTitle"
-            android:text="@string/selectEarlyArrivedTime"
+            style="@style/TitleTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@{viewModel.userNickname}"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            style="@style/TitleTextView"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/earlyArrivedPickerBackground"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:background="@color/number_picker_background_gray"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <NumberPicker
             android:id="@+id/earlyArrivedTimeHoursPicker"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.NumberPicker"
+            android:value="@={viewModel.earlyArrivedTimeHours}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/earlyArrivedTimeMinutesPicker"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:theme="@style/AppTheme.NumberPicker"
-            android:value ="@={viewModel.earlyArrivedTimeHours}"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/earlyArrivedTimeHoursText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
             android:text="@string/hours"
             android:textColor="@color/number_picker_text_color_black"
             android:textSize="14dp"
-            app:layout_constraintEnd_toEndOf="@id/earlyArrivedTimeHoursPicker"
             app:layout_constraintBottom_toBottomOf="@id/earlyArrivedPickerBackground"
-            android:layout_marginBottom="15dp"/>
+            app:layout_constraintEnd_toEndOf="@id/earlyArrivedTimeHoursPicker" />
 
         <NumberPicker
             android:id="@+id/earlyArrivedTimeMinutesPicker"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.NumberPicker"
+            android:value="@={viewModel.earlyArrivedTimeMinutes}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/earlyArrivedTimeHoursPicker"
-            app:layout_constraintTop_toTopOf="parent"
-            android:theme="@style/AppTheme.NumberPicker"
-            android:value ="@={viewModel.earlyArrivedTimeMinutes}"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/earlyArrivedTimeMinutesText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
             android:text="@string/minutes"
             android:textColor="@color/number_picker_text_color_black"
             android:textSize="14dp"
-            app:layout_constraintEnd_toEndOf="@id/earlyArrivedTimeMinutesPicker"
             app:layout_constraintBottom_toBottomOf="@id/earlyArrivedPickerBackground"
-            android:layout_marginBottom="15dp"/>
+            app:layout_constraintEnd_toEndOf="@id/earlyArrivedTimeMinutesPicker" />
 
         <Button
             android:id="@+id/earlyArrivedTimeButton"
@@ -82,15 +83,15 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:background="@drawable/ui_background_bottom_button_brown_round_24"
-            android:text="선택"
+            android:onClick="@{()->viewModel.onButtonClick()}"
+            android:outlineProvider="none"
+            android:text="@string/common_choice"
             android:textColor="@color/white"
             android:textSize="14dp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:outlineProvider="none"
-            android:onClick="@{()->viewModel.onButtonClick()}"/>
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

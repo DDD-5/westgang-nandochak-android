@@ -38,21 +38,23 @@ class AverageReadyTimeActivity : BaseActivity() {
     }
 
     private fun initNumberPicker() {
-        binding.averageReadyTimeHoursPicker.minValue = 0
-        binding.averageReadyTimeHoursPicker.maxValue = 12
-        binding.averageReadyTimeMinutesPicker.minValue = 0
-        binding.averageReadyTimeMinutesPicker.maxValue = 59
+        with(binding) {
+            averageReadyTimeHoursPicker.minValue = 0
+            averageReadyTimeHoursPicker.maxValue = 12
+            averageReadyTimeMinutesPicker.minValue = 0
+            averageReadyTimeMinutesPicker.maxValue = 59
 
-        binding.averageReadyTimeHoursPicker.wrapSelectorWheel = false
-        binding.averageReadyTimeMinutesPicker.wrapSelectorWheel = false
+            averageReadyTimeHoursPicker.wrapSelectorWheel = false
+            averageReadyTimeMinutesPicker.wrapSelectorWheel = false
 
-        binding.averageReadyTimeHoursPicker.descendantFocusability =
-            NumberPicker.FOCUS_BLOCK_DESCENDANTS
-        binding.averageReadyTimeMinutesPicker.descendantFocusability =
-            NumberPicker.FOCUS_BLOCK_DESCENDANTS
+            averageReadyTimeHoursPicker.descendantFocusability =
+                NumberPicker.FOCUS_BLOCK_DESCENDANTS
+            averageReadyTimeMinutesPicker.descendantFocusability =
+                NumberPicker.FOCUS_BLOCK_DESCENDANTS
 
-        binding.averageReadyTimeMinutesPicker.formatter()
-        binding.averageReadyTimeHoursPicker.formatter()
+            averageReadyTimeMinutesPicker.formatter()
+            averageReadyTimeHoursPicker.formatter()
+        }
     }
 
     private fun initUserNickName() {
@@ -66,8 +68,11 @@ class AverageReadyTimeActivity : BaseActivity() {
     }
 
     private fun gotoEarlyArrivedTime() {
-        startActivity(
-            Intent(this, EarlyArrivedTimeActivity::class.java)
-        )
+        Intent(this, EarlyArrivedTimeActivity::class.java).apply {
+            putExtra(AppConfig.INTENT_PARAM_NICK_NAME, nickName)
+            putExtra(AppConfig.INTENT_PARAM_FLAG_FROM_SIGN_UP, true)
+        }.also {
+            startActivity(it)
+        }
     }
 }

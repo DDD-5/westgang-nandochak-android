@@ -26,7 +26,13 @@
     </string>
 
     <!--early arrived time-->
-    <string name="selectEarlyArrivedTime">친구 이름이 %1$s(이)구나!\n몇 분 일찍 도착할 계획일까?</string>
+    <string name="selectEarlyArrivedTimePostfix">
+        (야)아!
+        \n몇 분 일찍 도착할 계획이니?
+    </string>
+    <string name="selectEarlyArrivedTimeDefault">
+        \n몇 분 일찍 도착할 계획이니?
+    </string>
 
     <!--plan time-->
     <string name="selectPlanTime">약속 장소에 몇 시에\n 모이기로 했을까?</string>
@@ -56,5 +62,6 @@
     <string name="sign_up_require_more_input_text">
         두 글자 이상 입력 해줘!
     </string>
+    <string name="common_choice">선택</string>
 
 </resources>

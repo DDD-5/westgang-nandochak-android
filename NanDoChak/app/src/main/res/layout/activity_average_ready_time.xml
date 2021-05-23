@@ -85,7 +85,7 @@
             android:background="@drawable/ui_background_bottom_button_brown_round_24"
             android:onClick="@{()->viewModel.onButtonClick()}"
             android:outlineProvider="none"
-            android:text="선택"
+            android:text="@string/common_choice"
             android:textColor="@color/white"
             android:textSize="14dp"
             android:textStyle="bold"
