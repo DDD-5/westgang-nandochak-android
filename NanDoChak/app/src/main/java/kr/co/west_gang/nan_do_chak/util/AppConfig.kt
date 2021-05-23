@@ -15,4 +15,6 @@ object AppConfig {
     const val FRAGMENT_ID_HOME = "homeFragment"
     const val FRAGMENT_ID_ALARM = "alarmFragment"
     const val FRAGMENT_ID_ACCOUNT = "accountFragment"
+
+    const val INTENT_PARAM_NICK_NAME = "nickName"
 }

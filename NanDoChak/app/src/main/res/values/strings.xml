@@ -4,6 +4,10 @@
     <string name="hours">시</string>
     <string name="minutes">분</string>
 
+    <string name="common_okay">
+        확인
+    </string>
+
     <!--average ready time-->
     <string name="selectAverageReadyTime">친구야 안녕!\n평균 준비 시간을 선택해줘요</string>
 
@@ -15,10 +19,28 @@
     <string name="kakao_sign_up">카카오톡으로 가입하기</string>
     <string name="kakao_login">카카오톡으로 로그인!</string>
 
+    <!-- login -->
     <string name="login_welcome_text_title">
         아안녀엉 치인구야!\n나아느은 느리지마안 하앙사앙\n워언하느은 시이가안에\n자알 도오착해애 내 비이버업으을 아알려어주울까아?
     </string>
     <string name="login_welcome_text_explain">
         내에가아 너어무우 느으리이니,\n세에배에소옥으로오 내에 마알을 보오내에 주울게 하 하 하 하 기이다아려어 보아
     </string>
+
+    <!-- sign up-->
+    <string name="sign_up_title_comment">
+        이제 3배속으로 변환기를 했어 잘 들리니?
+        \n\n우리 통성명을 아직 못했구나!
+        \n나는 해시계정글의 스삐라고해\n\n반가워!
+    </string>
+    <string name="sign_up_what_your_name">
+        너의 이름은 뭐니?
+    </string>
+    <string name="sign_up_input_hint">
+        스삐에게 이름을 알려줘 친해지자(최대 8자)
+    </string>
+    <string name="sign_up_require_more_input_text">
+        두 글자 이상 입력 해줘!
+    </string>
+
 </resources>

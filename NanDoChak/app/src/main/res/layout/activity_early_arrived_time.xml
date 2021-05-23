@@ -81,7 +81,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:background="@drawable/button_average_ready_time_brown_round_24"
+            android:background="@drawable/ui_background_bottom_button_brown_round_24"
             android:text="선택"
             android:textColor="@color/white"
             android:textSize="14dp"
