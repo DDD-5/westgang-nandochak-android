@@ -12,4 +12,5 @@
 
     <!--plan time-->
     <string name="selectPlanTime">약속 장소에 몇 시에\n 모이기로 했을까?</string>
+    <string name="common_cancel">취소하기</string>
 </resources>
