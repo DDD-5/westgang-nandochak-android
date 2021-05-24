@@ -16,6 +16,8 @@ object AppConfig {
     const val FRAGMENT_ID_ALARM = "alarmFragment"
     const val FRAGMENT_ID_ACCOUNT = "accountFragment"
 
+    const val ACTIVITY_RESULT_SIGN_UP = 777
+
     const val INTENT_PARAM_NICK_NAME = "nickName"
     const val INTENT_PARAM_FLAG_FROM_SIGN_UP = "flag_from_sign_up"
 }

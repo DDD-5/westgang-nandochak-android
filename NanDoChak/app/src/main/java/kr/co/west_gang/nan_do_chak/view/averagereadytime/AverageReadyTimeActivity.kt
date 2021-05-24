@@ -3,6 +3,9 @@ package kr.co.west_gang.nan_do_chak.view.averagereadytime
 import android.content.Intent
 import android.os.Bundle
 import android.widget.NumberPicker
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import kr.co.west_gang.nan_do_chak.R
@@ -19,6 +22,7 @@ class AverageReadyTimeActivity : BaseActivity() {
 
     private var isFromSignUp = false
     private var nickName: String? = null
+    private lateinit var startForResult: ActivityResultLauncher<Intent>
 
     private fun NumberPicker.formatter() = this.setFormatter { i -> String.format("%02d", i) }
 
@@ -26,6 +30,15 @@ class AverageReadyTimeActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
+        
+        startForResult =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
+                if (result.resultCode == AppConfig.ACTIVITY_RESULT_SIGN_UP) {
+                    setResult(AppConfig.ACTIVITY_RESULT_SIGN_UP)
+                    finish()
+                }
+            }
+
 
         logD(AppConfig.TAG_DEBUG, "AverageReadyTime Activity onCreate")
 
@@ -72,7 +85,7 @@ class AverageReadyTimeActivity : BaseActivity() {
             putExtra(AppConfig.INTENT_PARAM_NICK_NAME, nickName)
             putExtra(AppConfig.INTENT_PARAM_FLAG_FROM_SIGN_UP, true)
         }.also {
-            startActivity(it)
+            startForResult.launch(it)
         }
     }
 }

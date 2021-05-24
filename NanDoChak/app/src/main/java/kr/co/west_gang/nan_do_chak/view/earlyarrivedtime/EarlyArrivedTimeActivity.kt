@@ -20,6 +20,7 @@ class EarlyArrivedTimeActivity : BaseActivity() {
 
     private var isFromSignUp = false
     private var nickName: String? = null
+    private var isSignUpProcessing = false
 
 
     private fun NumberPicker.formatter() = this.setFormatter { i -> String.format("%02d", i) }
@@ -63,6 +64,7 @@ class EarlyArrivedTimeActivity : BaseActivity() {
 
     private fun observeLiveData() {
         viewModel.buttonClickEvent.observe(this, Observer {
+            isSignUpProcessing = true
             viewModel.setUserInformationDone(isFromSignUp)
         })
 
@@ -77,6 +79,15 @@ class EarlyArrivedTimeActivity : BaseActivity() {
             getString(R.string.sign_up_complete),
             Toast.LENGTH_SHORT
         ).show()
+
+        setResult(AppConfig.ACTIVITY_RESULT_SIGN_UP)
         finish()
+    }
+
+    override fun onBackPressed() {
+        if (isSignUpProcessing) {
+            return
+        }
+        super.onBackPressed()
     }
 }

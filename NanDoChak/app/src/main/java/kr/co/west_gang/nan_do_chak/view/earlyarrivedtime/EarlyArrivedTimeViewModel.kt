@@ -49,6 +49,9 @@ class EarlyArrivedTimeViewModel : ViewModel() {
         if (isSignUp) {
             //TODO : 유저 등록 (서버), db 수정
             viewModelScope.launch {
+                withContext(Dispatchers.Main) {
+                    _signUpDone.value = Unit
+                }
                 withContext(Dispatchers.IO) {
                     createUserInfoInFirestore(
                         userInfoDto = UserInfoDto(
@@ -58,7 +61,6 @@ class EarlyArrivedTimeViewModel : ViewModel() {
                             earlyArrivedTime = UserInfo.earlyArrivedTime
                         )
                     )
-                    _signUpDone.value = Unit
                 }
             }
         } else {

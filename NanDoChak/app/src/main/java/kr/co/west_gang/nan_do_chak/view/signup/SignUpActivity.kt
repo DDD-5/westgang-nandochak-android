@@ -1,17 +1,22 @@
 package kr.co.west_gang.nan_do_chak.view.signup
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.KeyEvent
 import android.widget.Toast
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import kr.co.west_gang.nan_do_chak.R
 import kr.co.west_gang.nan_do_chak.architecture.BaseActivity
 import kr.co.west_gang.nan_do_chak.databinding.ActivitySignUpBinding
 import kr.co.west_gang.nan_do_chak.util.AppConfig
+import kr.co.west_gang.nan_do_chak.util.AppConfig.ACTIVITY_RESULT_SIGN_UP
 import kr.co.west_gang.nan_do_chak.util.AppConfig.TAG_DEBUG
 import kr.co.west_gang.nan_do_chak.util.logD
 import kr.co.west_gang.nan_do_chak.view.averagereadytime.AverageReadyTimeActivity
@@ -20,13 +25,20 @@ class SignUpActivity : BaseActivity() {
 
     private val binding by binding<ActivitySignUpBinding>(R.layout.activity_sign_up)
     private val viewModel: SignUpViewModel by viewModels()
+    private lateinit var startForResult: ActivityResultLauncher<Intent>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
 
-        addNickNameTextChaneListener()
+        startForResult =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
+                if (result.resultCode == ACTIVITY_RESULT_SIGN_UP) {
+                    finish()
+                }
+            }
+
         addNickNameTextEnter()
         observeLiveData()
     }
@@ -42,8 +54,8 @@ class SignUpActivity : BaseActivity() {
     }
 
     private fun goToNextStep() {
-        val nickNameText = viewModel.nickNameInput.value
-        if (nickNameText.isNullOrEmpty() || nickNameText.length < 2) {
+        val nickNameText = viewModel.nickNameInput
+        if (nickNameText.isEmpty() || nickNameText.length < 2) {
             Toast.makeText(
                 this,
                 getString(R.string.sign_up_require_more_input_text),
@@ -56,25 +68,14 @@ class SignUpActivity : BaseActivity() {
     }
 
     private fun startAverageActivity(nickName: String) {
+
+
         Intent(this, AverageReadyTimeActivity::class.java).apply {
             putExtra(AppConfig.INTENT_PARAM_NICK_NAME, nickName)
             putExtra(AppConfig.INTENT_PARAM_FLAG_FROM_SIGN_UP, true)
         }.also {
-            startActivity(it)
+            startForResult.launch(it)
         }
-    }
-
-    private fun addNickNameTextChaneListener() {
-        binding.signUpNickNameInput.addTextChangedListener(object : TextWatcher {
-            override fun afterTextChanged(s: Editable?) = Unit
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) =
-                Unit
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                val input = s?.toString()?.replace(" ", "") ?: ""
-                viewModel.setNickName(input)
-            }
-        })
     }
 
     private fun addNickNameTextEnter() {
