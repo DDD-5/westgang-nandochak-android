@@ -8,11 +8,16 @@ import kr.co.west_gang.nan_do_chak.R
 
 object AppConfig {
     var isDebugMode = NanDoChakApplication.getBoolean(R.bool.isDebug)
-
     const val TAG_DEBUG = "TAG_DEBUG"
-    const val UNCAUGHT_EXCEPTION = "uncaught_exception"
 
+    const val UNCAUGHT_EXCEPTION = "uncaught_exception"
     const val FRAGMENT_ID_HOME = "homeFragment"
+
     const val FRAGMENT_ID_ALARM = "alarmFragment"
     const val FRAGMENT_ID_ACCOUNT = "accountFragment"
+
+    const val ACTIVITY_RESULT_SIGN_UP = 777
+
+    const val INTENT_PARAM_NICK_NAME = "nickName"
+    const val INTENT_PARAM_FLAG_FROM_SIGN_UP = "flag_from_sign_up"
 }

@@ -3,6 +3,7 @@ package kr.co.west_gang.nan_do_chak.view.earlyarrivedtime
 import android.content.Intent
 import android.os.Bundle
 import android.widget.NumberPicker
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import kr.co.west_gang.nan_do_chak.R
@@ -12,10 +13,15 @@ import kr.co.west_gang.nan_do_chak.util.AppConfig
 import kr.co.west_gang.nan_do_chak.util.logD
 import kr.co.west_gang.nan_do_chak.view.plantime.PlanTimeActivity
 
-class EarlyArrivedTimeActivity : BaseActivity()  {
+class EarlyArrivedTimeActivity : BaseActivity() {
 
     private val binding by binding<ActivityEarlyArrivedTimeBinding>(R.layout.activity_early_arrived_time)
     private val viewModel: EarlyArrivedTimeViewModel by viewModels()
+
+    private var isFromSignUp = false
+    private var nickName: String? = null
+    private var isSignUpProcessing = false
+
 
     private fun NumberPicker.formatter() = this.setFormatter { i -> String.format("%02d", i) }
 
@@ -26,11 +32,15 @@ class EarlyArrivedTimeActivity : BaseActivity()  {
 
         logD(AppConfig.TAG_DEBUG, "EarlyArrivedTime Activity onCreate")
 
+        isFromSignUp = intent.extras?.get(AppConfig.INTENT_PARAM_FLAG_FROM_SIGN_UP) as Boolean
+        nickName = intent.extras?.get(AppConfig.INTENT_PARAM_NICK_NAME)?.toString()
+
         observeLiveData()
         initNumberPicker()
+        initUserNickName()
     }
 
-    private fun initNumberPicker(){
+    private fun initNumberPicker() {
         binding.earlyArrivedTimeHoursPicker.minValue = 0
         binding.earlyArrivedTimeHoursPicker.maxValue = 12
         binding.earlyArrivedTimeMinutesPicker.minValue = 0
@@ -39,24 +49,45 @@ class EarlyArrivedTimeActivity : BaseActivity()  {
         binding.earlyArrivedTimeHoursPicker.wrapSelectorWheel = false
         binding.earlyArrivedTimeMinutesPicker.wrapSelectorWheel = false
 
-        binding.earlyArrivedTimeHoursPicker.descendantFocusability = NumberPicker.FOCUS_BLOCK_DESCENDANTS
-        binding.earlyArrivedTimeMinutesPicker.descendantFocusability = NumberPicker.FOCUS_BLOCK_DESCENDANTS
+        binding.earlyArrivedTimeHoursPicker.descendantFocusability =
+            NumberPicker.FOCUS_BLOCK_DESCENDANTS
+        binding.earlyArrivedTimeMinutesPicker.descendantFocusability =
+            NumberPicker.FOCUS_BLOCK_DESCENDANTS
 
         binding.earlyArrivedTimeHoursPicker.formatter()
         binding.earlyArrivedTimeMinutesPicker.formatter()
     }
 
-    private fun observeLiveData(){
-        viewModel.buttonClickEvent.observe(this, Observer {
-            gotoPlansTime()
-        })
-
-        binding.earlyArrivedTimeTitle.text = getString(R.string.selectEarlyArrivedTime, viewModel.userName)
+    private fun initUserNickName() {
+        viewModel.setUserNickName(nickName)
     }
 
-    private fun gotoPlansTime(){
-        startActivity(
-            Intent(this, PlanTimeActivity::class.java)
-        )
+    private fun observeLiveData() {
+        viewModel.buttonClickEvent.observe(this, Observer {
+            isSignUpProcessing = true
+            viewModel.setUserInformationDone(isFromSignUp)
+        })
+
+        viewModel.signUpDone.observe(this, Observer {
+            signUpDone()
+        })
+    }
+
+    private fun signUpDone() {
+        Toast.makeText(
+            this,
+            getString(R.string.sign_up_complete),
+            Toast.LENGTH_SHORT
+        ).show()
+
+        setResult(AppConfig.ACTIVITY_RESULT_SIGN_UP)
+        finish()
+    }
+
+    override fun onBackPressed() {
+        if (isSignUpProcessing) {
+            return
+        }
+        super.onBackPressed()
     }
 }

@@ -3,10 +3,12 @@ package kr.co.west_gang.nan_do_chak.util
 import android.app.Application
 import android.content.Context
 import android.graphics.Typeface
+import com.kakao.sdk.common.KakaoSdk
 import com.orhanobut.logger.AndroidLogAdapter
 import com.orhanobut.logger.Logger
 import com.orhanobut.logger.PrettyFormatStrategy
 import dagger.hilt.android.HiltAndroidApp
+import kr.co.west_gang.nan_do_chak.R
 
 /*
 * Created by JJJoonngg
@@ -42,6 +44,8 @@ class NanDoChakApplication : Application() {
         if (!AppConfig.isDebugMode) {
             setCrashHandler()
         }
+
+        KakaoSdk.init(this, getString(R.string.kakao_app_key))
     }
 
     private fun setCrashHandler() {
