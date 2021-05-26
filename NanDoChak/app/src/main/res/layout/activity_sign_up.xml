@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="kr.co.west_gang.nan_do_chak.view.signup.SignUpViewModel" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.signup.SignUpActivity">
+
+        <ImageView
+            android:id="@+id/loginPageCharacterBackground"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ui_background_login_page"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/signUpWelcomeTextBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/ui_login_text_background"
+            android:elevation="10dp"
+            android:paddingStart="24dp"
+            android:paddingTop="30dp"
+            android:paddingEnd="24dp"
+            android:paddingBottom="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/signUpWelcomeTextTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:letterSpacing="-0.02"
+                android:text="@string/sign_up_title_comment"
+                android:textColor="#29292f"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/signUpYourNameText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="14dp"
+            android:letterSpacing="-0.01"
+            android:text="@string/sign_up_what_your_name"
+            android:textColor="#29292f"
+            android:textSize="22dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/signUpNickNameInput"
+            app:layout_constraintStart_toStartOf="@id/signUpDoneButton" />
+
+        <EditText
+            android:id="@+id/signUpNickNameInput"
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_marginBottom="24dp"
+            android:background="#f8f8f8"
+            android:hint="@string/sign_up_input_hint"
+            android:inputType="text"
+            android:maxLength="8"
+            android:maxLines="1"
+            android:paddingStart="16dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="@={viewModel.nickNameInput}"
+            android:textAlignment="textStart"
+            android:textSize="14dp"
+            app:layout_constraintBottom_toTopOf="@id/signUpDoneButton"
+            app:layout_constraintEnd_toEndOf="@id/signUpDoneButton"
+            app:layout_constraintStart_toStartOf="@+id/signUpDoneButton"
+            tools:ignore="Autofill,RtlSymmetry" />
+
+        <Button
+            android:id="@+id/signUpDoneButton"
+            style="@style/LoginButtonText"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/sign_up_button_height"
+            android:layout_marginStart="@dimen/sign_up_button_margin_side"
+            android:layout_marginEnd="@dimen/sign_up_button_margin_side"
+            android:layout_marginBottom="@dimen/sign_up_login_button_margin_bottom"
+            android:background="@drawable/ui_background_bottom_button_brown_round_24"
+            android:onClick="@{()->viewModel.signUpDoneButtonClick()}"
+            android:stateListAnimator="@null"
+            android:text="@string/common_okay"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -4,11 +4,35 @@
     <string name="hours">시</string>
     <string name="minutes">분</string>
 
+    <string name="common_okay">
+        확인
+    </string>
+
     <!--average ready time-->
-    <string name="selectAverageReadyTime">친구야 안녕!\n평균 준비 시간을 선택해줘요</string>
+    <string name="selectAverageReadyTime">
+        (야)아!
+        \n평균 준비 시간을 선택해
+    </string>
+    <string name="selectAverageReadyTimeWhenSignUpPrefix">
+        아하 이름이
+    </string>
+    <string name="selectAverageReadyTimeWhenSignUpPostfix">
+        구나!
+        \n약속 장소에 나갈때
+        \n평균 준비 시간을 선택해 줘
+    </string>
+    <string name="selectAverageReadyTimeWhenNoNickName">
+        평균 준비 시간을 선택해 줘
+    </string>
 
     <!--early arrived time-->
-    <string name="selectEarlyArrivedTime">친구 이름이 %1$s(이)구나!\n몇 분 일찍 도착할 계획일까?</string>
+    <string name="selectEarlyArrivedTimePostfix">
+        (야)아!
+        \n몇 분 일찍 도착할 계획이니?
+    </string>
+    <string name="selectEarlyArrivedTimeDefault">
+        \n몇 분 일찍 도착할 계획이니?
+    </string>
 
     <!--plan time-->
     <string name="selectPlanTime">약속 장소에 몇 시에\n 모이기로 했을까?</string>
@@ -21,5 +45,57 @@
     </string>
     <string name="network_not_available_content">
         인터넷 연결 상태를 체크해줘! 인터넷이 연결되었을 때만 사용가능해!
+    </string>
+    <string name="kakao_sign_up">카카오톡으로 가입하기</string>
+    <string name="kakao_login">카카오톡으로 로그인!</string>
+
+    <!-- login -->
+    <string name="login_welcome_text_title">
+        아안녀엉 치인구야!\n나아느은 느리지마안 하앙사앙\n워언하느은 시이가안에\n자알 도오착해애 내 비이버업으을 아알려어주울까아?
+    </string>
+    <string name="login_welcome_text_explain">
+        내에가아 너어무우 느으리이니,\n세에배에소옥으로오 내에 마알을 보오내에 주울게 하 하 하 하 기이다아려어 보아
+    </string>
+
+    <string name="login_toast_success">
+        로그인 성공
+    </string>
+    <string name="login_toast_not_exist_user">
+        존재하지 않는 회원입니다. 가입해주세요!
+    </string>
+    <string name="login_toast_exist_user">
+        이미 가입된 회원입니다.\n로그인 해주세요!
+    </string>
+    <string name="login_error">
+        로그인 중 문제가 발생했습니다.\n다시 한 번 시도해주세요.
+    </string>
+    <string name="login_sign_up_error">
+        회원 가입중 문제가 발생했습니다.\n다시 한 번 시도해주세요.
+    </string>
+
+    <!-- sign up-->
+    <string name="sign_up_title_comment">
+        이제 3배속으로 변환기를 했어 잘 들리니?
+        \n\n우리 통성명을 아직 못했구나!
+        \n나는 해시계정글의 스삐라고해\n\n반가워!
+    </string>
+    <string name="sign_up_what_your_name">
+        너의 이름은 뭐니?
+    </string>
+    <string name="sign_up_input_hint">
+        스삐에게 이름을 알려줘 친해지자(최대 8자)
+    </string>
+    <string name="sign_up_require_more_input_text">
+        두 글자 이상 입력 해줘!
+    </string>
+    <string name="sign_up_complete">
+        회원가입 완료! 로그인 부탁해!
+    </string>
+
+
+    <string name="common_choice">선택</string>
+
+    <string name="kakao_login_cancelled">
+        cancelled
     </string>
 </resources>

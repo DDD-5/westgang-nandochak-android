@@ -6,10 +6,12 @@ import android.graphics.Typeface
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
+import com.kakao.sdk.common.KakaoSdk
 import com.orhanobut.logger.AndroidLogAdapter
 import com.orhanobut.logger.Logger
 import com.orhanobut.logger.PrettyFormatStrategy
 import dagger.hilt.android.HiltAndroidApp
+import kr.co.west_gang.nan_do_chak.R
 
 /*
 * Created by JJJoonngg
@@ -48,6 +50,8 @@ class NanDoChakApplication : Application(), LifecycleObserver {
 
         networkStatusChecker = NetworkStatusChecker(context)
         lifecycleHandler = NanDoChakLifecycleHandler(this)
+
+        KakaoSdk.init(this, getString(R.string.kakao_app_key))
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
