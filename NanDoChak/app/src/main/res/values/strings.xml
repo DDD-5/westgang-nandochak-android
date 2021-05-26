@@ -13,4 +13,13 @@
     <!--plan time-->
     <string name="selectPlanTime">약속 장소에 몇 시에\n 모이기로 했을까?</string>
     <string name="common_cancel">취소하기</string>
+
+
+    <!--exceptions-->
+    <string name="network_not_available_title">
+        인터넷 연결 안됨!
+    </string>
+    <string name="network_not_available_content">
+        인터넷 연결 상태를 체크해줘! 인터넷이 연결되었을 때만 사용가능해!
+    </string>
 </resources>

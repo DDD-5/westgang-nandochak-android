@@ -3,6 +3,9 @@ package kr.co.west_gang.nan_do_chak.util
 import android.app.Application
 import android.content.Context
 import android.graphics.Typeface
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleObserver
+import androidx.lifecycle.OnLifecycleEvent
 import com.orhanobut.logger.AndroidLogAdapter
 import com.orhanobut.logger.Logger
 import com.orhanobut.logger.PrettyFormatStrategy
@@ -13,7 +16,7 @@ import dagger.hilt.android.HiltAndroidApp
 */
 
 @HiltAndroidApp
-class NanDoChakApplication : Application() {
+class NanDoChakApplication : Application(), LifecycleObserver {
     override fun onCreate() {
         super.onCreate()
         context = applicationContext
@@ -42,6 +45,19 @@ class NanDoChakApplication : Application() {
         if (!AppConfig.isDebugMode) {
             setCrashHandler()
         }
+
+        networkStatusChecker = NetworkStatusChecker(context)
+        lifecycleHandler = NanDoChakLifecycleHandler(this)
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_START)
+    fun onApplicationForeground() {
+        networkStatusChecker.registerNetwork()
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
+    fun onApplicationBackground() {
+        networkStatusChecker.unregisterNetwork()
     }
 
     private fun setCrashHandler() {
@@ -53,6 +69,11 @@ class NanDoChakApplication : Application() {
     companion object {
 
         private lateinit var context: Context
+
+        private lateinit var networkStatusChecker: NetworkStatusChecker
+        fun isOnline() = networkStatusChecker.isOnline()
+
+        private lateinit var lifecycleHandler: NanDoChakLifecycleHandler
 
         fun getAppContext() = context
         fun getColor(resId: Int): Int = context.getColor(resId)
