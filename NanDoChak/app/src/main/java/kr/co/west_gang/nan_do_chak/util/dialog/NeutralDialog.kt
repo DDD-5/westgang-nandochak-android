@@ -7,7 +7,7 @@ import kotlinx.android.synthetic.main.view_dialog_base.view.*
 * Created by JJJoonngg
 */
 
-abstract class NeutralDialog : BaseDialog() {
+class NeutralDialog : BaseDialog() {
     private var titleId: Int = 0
     private var contentId: Int = 0
 

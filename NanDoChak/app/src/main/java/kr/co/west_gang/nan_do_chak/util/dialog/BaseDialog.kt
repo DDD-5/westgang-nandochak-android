@@ -67,15 +67,16 @@ abstract class BaseDialog : DialogFragment() {
                     WindowInsets.Type.navigationBars() or WindowInsets.Type.displayCutout()
                 )
                 val insetsWidth = insets.right + insets.left
+                val insetsHeight = insets.bottom + insets.top
 
                 val bounds = windowMetrics.bounds
-                params.width = ((bounds.width() - insetsWidth) * 0.7f).toInt()
+                params.width = ((bounds.width() - insetsWidth) * 0.8f).toInt()
                 params.height = ViewGroup.LayoutParams.WRAP_CONTENT
             } else {
                 val size = Point()
                 val display = windowManager.defaultDisplay // deprecated in API 30
                 display?.getSize(size) // deprecated in API 30
-                params.width = (size.x * 0.70f).toInt()
+                params.width = (size.x * 0.8f).toInt()
                 params.height = ViewGroup.LayoutParams.WRAP_CONTENT
             }
 
