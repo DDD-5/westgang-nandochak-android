@@ -36,6 +36,16 @@
 
     <!--plan time-->
     <string name="selectPlanTime">약속 장소에 몇 시에\n 모이기로 했을까?</string>
+    <string name="common_cancel">취소하기</string>
+
+
+    <!--exceptions-->
+    <string name="network_not_available_title">
+        인터넷 연결 안됨!
+    </string>
+    <string name="network_not_available_content">
+        인터넷 연결 상태를 체크해줘! 인터넷이 연결되었을 때만 사용가능해!
+    </string>
     <string name="kakao_sign_up">카카오톡으로 가입하기</string>
     <string name="kakao_login">카카오톡으로 로그인!</string>
 
@@ -81,13 +91,11 @@
     <string name="sign_up_complete">
         회원가입 완료! 로그인 부탁해!
     </string>
-    
-    
-    
+
+
     <string name="common_choice">선택</string>
 
     <string name="kakao_login_cancelled">
         cancelled
     </string>
-
 </resources>
