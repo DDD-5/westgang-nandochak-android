@@ -2,8 +2,11 @@ package kr.co.west_gang.nan_do_chak.view.login
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Observer
 import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.user.UserApiClient
@@ -12,6 +15,9 @@ import kr.co.west_gang.nan_do_chak.architecture.BaseActivity
 import kr.co.west_gang.nan_do_chak.databinding.ActivityLoginBinding
 import kr.co.west_gang.nan_do_chak.firebase.FirestoreConfig.UserExistCheck
 import kr.co.west_gang.nan_do_chak.util.AppConfig.TAG_DEBUG
+import kr.co.west_gang.nan_do_chak.util.NanDoChakApplication
+import kr.co.west_gang.nan_do_chak.util.dialog.NeutralDialog
+import kr.co.west_gang.nan_do_chak.util.dialog.showNetworkNotAvailableDialog
 import kr.co.west_gang.nan_do_chak.util.logD
 import kr.co.west_gang.nan_do_chak.view.main.MainActivity
 import kr.co.west_gang.nan_do_chak.view.signup.SignUpActivity
@@ -32,6 +38,11 @@ class LoginActivity : BaseActivity() {
 
     private fun observeLiveData() {
         with(viewModel) {
+            isNetworkAvailable.observe(this@LoginActivity, Observer { isAvailable ->
+                if (!isAvailable) {
+                    showNetworkNotAvailableDialog(this@LoginActivity)
+                }
+            })
             isLoginButtonClicked.observe(this@LoginActivity, Observer { isClicked ->
                 if (isClicked) {
                     loginSessionCheck(isClicked)

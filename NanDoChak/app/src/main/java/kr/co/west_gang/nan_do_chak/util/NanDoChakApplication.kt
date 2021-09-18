@@ -49,8 +49,6 @@ class NanDoChakApplication : Application(), LifecycleObserver {
         }
 
         networkStatusChecker = NetworkStatusChecker(context)
-        lifecycleHandler = NanDoChakLifecycleHandler(this)
-
         KakaoSdk.init(this, getString(R.string.kakao_app_key))
     }
 
@@ -76,8 +74,6 @@ class NanDoChakApplication : Application(), LifecycleObserver {
 
         private lateinit var networkStatusChecker: NetworkStatusChecker
         fun isOnline() = networkStatusChecker.isOnline()
-
-        private lateinit var lifecycleHandler: NanDoChakLifecycleHandler
 
         fun getAppContext() = context
         fun getColor(resId: Int): Int = context.getColor(resId)

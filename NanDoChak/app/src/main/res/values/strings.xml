@@ -44,7 +44,7 @@
         인터넷 연결 안됨!
     </string>
     <string name="network_not_available_content">
-        인터넷 연결 상태를 체크해줘! 인터넷이 연결되었을 때만 사용가능해!
+        인터넷 연결 상태를 체크해줘!\n인터넷이 연결되었을 때만 사용가능해!
     </string>
     <string name="kakao_sign_up">카카오톡으로 가입하기</string>
     <string name="kakao_login">카카오톡으로 로그인!</string>
